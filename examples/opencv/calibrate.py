@@ -54,9 +54,9 @@ while True:
         break
     elif k % 256 == 32:
         # SPACE pressed
-        img_name = "opencv_frame_{}.png".format(img_counter)
+        img_name = f"opencv_frame_{img_counter}.png"
         cv2.imwrite(img_name, frame_clean)
-        print("{} written!".format(img_name))
+        print(f"{img_name} written!")
         img_counter += 1
 
         # Convert to grayscale
@@ -78,7 +78,7 @@ while True:
 
 cv2.destroyAllWindows()
 
-if len(objpoints) > 0:
+if objpoints:
     # Perform camera calibration
     ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(
         objpoints, imgpoints, gray.shape[::-1], None, None
